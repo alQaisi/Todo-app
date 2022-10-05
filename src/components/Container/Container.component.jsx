@@ -1,9 +1,5 @@
 import { Cont, DeleteBtn, BtnIcon } from "./Container.styles";
-import Navbar from "../Navbar/Navbar.component";
-import Header from "../Header/Header.component";
-import Footer from "../Footer/Footer.component";
-import AddItem from '../AddItem/AddItem.component';
-import Item from "../Item/Item.component";
+import { Header, Footer, Navbar, Item, AddItem } from "../";
 import { Outlet } from 'react-router-dom';
 import { UiContext } from "../context/uiContext.context";
 import { ItemsContext } from "../context/ItemsContext";
