@@ -1,21 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { UiProvider } from './components/context/uiContext.context';
-import { ItemsProvider } from './components/context/ItemsContext';
 import { HashRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import { store } from './store/store';
+import { Provider } from 'react-redux'
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistor } from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // <React.StrictMode>
-    <HashRouter>
-      <UiProvider>
-        <ItemsProvider>
-          <App/>
-        </ItemsProvider>
-      </UiProvider>
-    </HashRouter>
+  <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <HashRouter>
+        <App/>
+      </HashRouter>
+    </PersistGate>
+  </Provider>
   // </React.StrictMode>
 );
 

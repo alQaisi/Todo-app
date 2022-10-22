@@ -1,11 +1,12 @@
-import { useEffect, useContext } from "react";
-import { UiContext } from "../../components/context/uiContext.context";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { setCurrentPage } from "../../store/uiSlice";
 
 function RoutesHandler({page}){
-    const { setCurrentPage } =useContext(UiContext);
+    const dispatch=useDispatch();
     useEffect(()=>{
-        setCurrentPage(page);
-    },[setCurrentPage,page]);
+        dispatch(setCurrentPage(page));
+    },[page,dispatch]);
     return(
         <></>
     );
